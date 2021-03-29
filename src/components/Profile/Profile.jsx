@@ -1,4 +1,5 @@
 import React from 'react'
+import MyPosts from './MyPosts/MyPosts'
 import classes from './Profile.module.css'
 
 
@@ -7,19 +8,8 @@ const Profile = () => {
     <div>
     <img height="300px" src='https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg' />
     </div>
-    <div className={classes.posts}>
-      my posts
-      <div className={classes.item}>
-        New post
-      </div>
-      <div className={classes.item}>
-        post1
-      </div>
-      <div className={classes.item}>
-        post2
-      </div>
+    <MyPosts />
     </div>
-  </div>
 }
 
 export default Profile
