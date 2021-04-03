@@ -3,22 +3,11 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.dialog_items {
+.dialogItems {
     padding: 10px;
-}
-
-.dialog_items .active{
-    color: gold;
-}
-
-.dialog_items .dialog {
-
+    color: white;
 }
 
 .messages {
     padding: 10px;
-}
-
-.message {
-
 }

@@ -1,42 +1,37 @@
 import React from 'react'
 import classes from './Dialogs.module.css'
-import {NavLink} from 'react-router-dom';
-
-const DialogItem = (props) => {
-    let path = '/dialogs/' + props.id
-
-    return (
-        <div className={classes.dialog}>
-            <NavLink to={path} activeClassName={classes.active}>{props.name}</NavLink>
-        </div>
-    )
-}
-
-const Message = (props) => {
-    return(
-        <div className={classes.message}>{props.message}</div>
-    )
-}
+import DialogItem from './DialogItem/DialogItem';
+import Message from './Message/Message';
 
 
+let dialogsData = [
+    {id: 1, name: 'Sergey'},
+    {id: 2, name: 'Andrey'},
+    {id: 3, name: 'Sveta'},
+    {id: 4, name: 'Sasha'},
+    {id: 5, name: 'Katya'},
+    {id: 6, name: 'Valera'}
+]
+
+let messagesData = [
+    {id: 1, message: 'Hi'},
+    {id: 2, message: 'How is your'},
+    {id: 3, message: 'Yo'},
+    {id: 4, message: 'Yo'},
+    {id: 5, message: 'Yo'},
+]
+
+let dialogElements = dialogsData.map(item => <DialogItem name={item.name} id={item.id}/>)
+let messageElements = messagesData.map(item => <Message message={item.message}/>)
 
 const Dialogs = (props) => {
     return (
         <div className={classes.dialogs}>
-            <div className={classes.dialog_items}>
-                <DialogItem name='Sergey' id='1'/>
-                <DialogItem name='Andrey' id='2'/>
-                <DialogItem name='Sveta' id='3'/>
-                <DialogItem name='Sasha' id='4'/>
-                <DialogItem name='Katya' id='5'/>
-                <DialogItem name='Valera' id='6'/>
+            <div className={classes.dialogItems}>
+                {dialogElements}
             </div>
             <div className={classes.messages}>
-                <Message message='Hi' />
-                <Message message='How is your' />
-                <Message message='Yo' />
-                <Message message='Yo' />
-                <Message message='Yo' />
+                {messageElements}
             </div>
         </div>
     )
