@@ -7,7 +7,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 
 
 function App(props) {
-    const dialogsComponent = () => <Dialogs messagesPageData={props.state.messagesPage} dispatch={props.dispatch}/>
+    const dialogsComponent = () => <Dialogs messagesPageData={props.state.dialogsPage} dispatch={props.dispatch}/>
     const profileComponent = () => <Profile profilePageData={props.state.profilePage} dispatch={props.dispatch}/>
     return (
         <BrowserRouter>
