@@ -4,11 +4,12 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 import {BrowserRouter, Route} from 'react-router-dom';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 function App(props) {
-    const dialogsComponent = () => <Dialogs messagesPageData={props.state.dialogsPage} dispatch={props.dispatch}/>
-    const profileComponent = () => <Profile profilePageData={props.state.profilePage} dispatch={props.dispatch}/>
+    const dialogsComponent = () => <DialogsContainer store={props.store} />
+    const profileComponent = () => <Profile store={props.store} />
     return (
         <BrowserRouter>
             <div className='app-wrapper'>

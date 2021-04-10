@@ -8,16 +8,16 @@ import store from './redux/redux-store';
 let rerenderDomTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)}/>
+            <App store={state} />
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
 
-rerenderDomTree(store.getState())
+rerenderDomTree(store)
 
 store.subscribe( () => {
-    let state = store.getState()
+    let state = store
     rerenderDomTree(state)
 })
 

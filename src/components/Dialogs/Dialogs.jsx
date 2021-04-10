@@ -7,16 +7,16 @@ import {addMessageCreator, updateNewMessageText} from '../../redux/dialogs-reduc
 
 
 const Dialogs = (props) => {
-    let dialogElements = props.messagesPageData.dialogsData.map(item => <DialogItem name={item.name} id={item.id}/>)
-    let messageElements = props.messagesPageData.messagesData.map(item => <Message message={item.message}/>)
+    let dialogElements = props.dialogsData.map(item => <DialogItem name={item.name} id={item.id}/>)
+    let messageElements = props.messagesData.map(item => <Message message={item.message}/>)
 
     let addMessage = () => {
-        props.dispatch(addMessageCreator())
+        props.addMessage()
     }
 
     let onChangeTextNewMessage = (e) => {
         let text = e.target.value
-        props.dispatch(updateNewMessageText(text))
+        props.updateNewMessageText(text)
     }
 
     return (
@@ -28,7 +28,7 @@ const Dialogs = (props) => {
                 {messageElements}
             </div>
             <div>
-                <textarea onChange={onChangeTextNewMessage} value={props.messagesPageData.newMessageText}/>
+                <textarea onChange={onChangeTextNewMessage} value={props.newMessageText}/>
             </div>
             <div>
                 <button onClick={addMessage}>Send message</button>
